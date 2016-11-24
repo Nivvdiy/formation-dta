@@ -24,6 +24,9 @@ public class PizzeriaAdminConsoleApp {
 			System.out.println("3.Mettre à jour une pizzas");
 			System.out.println("4.Supprimer une pizzas");
 			System.out.println("99.Sortir");
+			
+			
+			
 			int option = 0;
 			while (true){
 				String temp = sc.next();
