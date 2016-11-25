@@ -5,7 +5,7 @@ import fr.pizzeria.ihm.IhmUtil;
 public abstract class Action {
 
 	private String title;
-	private IhmUtil ihmUtil;
+	protected IhmUtil ihmUtil;
 
 	public Action(String description, IhmUtil ihmUtil) {
 		this.title = description;
