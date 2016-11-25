@@ -1,10 +1,8 @@
 package fr.pizzeria.ihm;
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.Scanner;
 
+import fr.pizzeria.dao.FileWR;
 import fr.pizzeria.dao.PizzaDaoList;
 import fr.pizzeria.model.Pizza;
 
@@ -36,7 +34,7 @@ public class IhmUtil {
 
 	public void affichePizza(Pizza p, boolean index) {
 		if(index){
-			System.out.print(p.getId()+".\t -> \t|");
+			System.out.print(pizzaDaoList.findAllPizzas().indexOf(p)+1+".\t -> \t|");
 		}
 		System.out.print(p.getCode()+"|\t|"+p.getName());
 		if(p.getName().length()<31){
@@ -55,35 +53,12 @@ public class IhmUtil {
 	}
 
 	public void initialize(){
-		pizzaDaoList.loadPizza();
+		pizzaDaoList.loadPizzas();
 	}
 
 	public void savePizzaFile() {
-		File f = new File ("pizzas.txt");
-		int nbPoint = Pizza.getNbPizza()/10;
-		int i = 0;
-
-		try{
-			FileWriter fw = new FileWriter (f);
-
-			for (Pizza pizza : getPizzaDaoList().findAllPizzas()){
-				fw.write (printPizza(pizza));
-				fw.write ("\r\n");
-				i++;
-				if(i==nbPoint){
-					System.out.print(".");
-				}
-			}
-
-			fw.close();
-		}
-		catch (IOException exception){
-			System.out.println ("Erreur lors de la lecture : " + exception.getMessage());
-		}
-	}
-
-	private String printPizza(Pizza pizza) {
-		return pizza.getId()+";"+pizza.getCode()+";"+pizza.getName()+";"+pizza.getPrice();
+		pizzaDaoList.getFileWR().setAllLines(FileWR.toStringList(pizzaDaoList.findAllPizzas()));
+		pizzaDaoList.savePizzas();
 	}
 
 

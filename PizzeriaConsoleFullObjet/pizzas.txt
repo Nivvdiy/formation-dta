@@ -1,21 +1,24 @@
-1;MAR;Margarita;14.57
-2;POV;Poivrons;15.18
-3;ROM;Roma;15.49
-4;CHR;Chorizo;15.95
-5;NAP;Napolitaine;15.95
-6;ITA;Italia;15.95
-7;ROY;Royale;15.95
-8;PRM;Prima;15.95
-9;BAC;Bacon;16.1
-10;ALS;Alsacienne;16.1
-11;PHA;Pizz' hallal;16.1
-12;ORI;Orientale;16.1
-13;FDM;Fruits de mer;16.4
-14;SAU;Saumon;16.4
-15;SIC;Sicilienne;16.56
-16;FRO;4 Fromages;17.17
-17;BRI;British;17.17
-18;SPE;Spéciale;17.62
-19;COM;Complète;17.62
-20;LAN;Landaise;17.62
-21;TTF;Tartifflette;17.62
+MAR;Margarita;14.57
+POV;Poivrons;15.18
+ROM;Roma;15.49
+CHR;Chorizo;15.95
+NAP;Napolitaine;15.95
+ITA;Italia;15.95
+ROY;Royale;15.95
+PRM;Prima;15.95
+BAC;Bacon;16.1
+ALS;Alsacienne;16.1
+PHA;Pizz' hallal;16.1
+ORI;Orientale;16.1
+FDM;Fruits de mer;16.4
+SAU;Saumon;16.4
+SIC;Sicilienne;16.56
+FRO;4 Fromages;17.17
+BRI;British;17.17
+SPE;Spéciale;17.62
+COM;Complète;17.62
+LAN;Landaise;17.62
+TTF;Tartifflette;17.62
+GEK;La spéciale GEEK;15.9
+MEX;La méxicaine;20.0
+CAV;Caviare;150.0

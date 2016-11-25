@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.action;
 
+import fr.pizzeria.exception.RemovePizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -45,7 +46,12 @@ public class RemovePizza extends Action {
 			return;
 		} else {
 			Pizza deletedPizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option-1);
-			ihmUtil.getPizzaDaoList().removePizza(option);
+			try {
+				ihmUtil.getPizzaDaoList().removePizza(option);
+			} catch (RemovePizzaException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			System.out.println("Pizza "+deletedPizza.getName()+" supprimer avec succès");
 		}
 	}

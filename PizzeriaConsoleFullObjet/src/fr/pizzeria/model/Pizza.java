@@ -2,19 +2,10 @@ package fr.pizzeria.model;
 
 public class Pizza{
 	
-	private int id;
 	private static int nbPizza;
 	private String code, name;
 	private double price;
 	
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public static int getNbPizza() {
 		return nbPizza;
 	}
@@ -51,10 +42,11 @@ public class Pizza{
 		this.price = price;
 	}
 
-	public Pizza(int id, String code, String name, double price) {
+	public Pizza(String code, String name, double price, boolean increment) {
 		super();
-		addPizza();
-		this.id = id;
+		if(increment){
+			addPizza();
+		}
 		this.code = code;
 		this.name = name;
 		this.price = price;

@@ -2,9 +2,9 @@ package fr.pizzeria.ihm.action;
 
 import fr.pizzeria.ihm.IhmUtil;
 
-public class exitApp extends Action {
+public class ExitApp extends Action {
 
-	public exitApp(IhmUtil ihmUtil) {
+	public ExitApp(IhmUtil ihmUtil) {
 		super("Quitter", ihmUtil);
 	}
 

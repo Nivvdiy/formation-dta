@@ -1,5 +1,6 @@
 package fr.pizzeria.ihm.action;
 
+import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
 
@@ -12,7 +13,6 @@ public class AddPizza extends Action {
 	@Override
 	public void doAction() {
 		this.afficheTitre();
-		int index = ihmUtil.getPizzaDaoList().getNbPizza()+1;
 		System.out.println("Veuillez saisir le code");
 		String code = ihmUtil.getScanner().next();
 		System.out.println("Veuillez saisir le nom");
@@ -33,7 +33,11 @@ public class AddPizza extends Action {
 			}
 
 		}
-		ihmUtil.getPizzaDaoList().saveNewPizza(new Pizza(index, code, name, price));
+		try {
+			ihmUtil.getPizzaDaoList().saveNewPizza(new Pizza(code, name, price, true));
+		} catch (SavePizzaException e) {
+			e.printStackTrace();
+		}
 	}
 
 }
