@@ -33,26 +33,27 @@ public class IhmUtil {
 	}
 
 	public void affichePizza(Pizza p, boolean index) {
-		if(index){
-			System.out.print(pizzaDaoList.findAllPizzas().indexOf(p)+1+".\t -> \t|");
+		if (index) {
+			System.out.print(pizzaDaoList.findAllPizzas().indexOf(p) + 1 + ".\t -> \t|");
 		}
-		System.out.print(p.getCode()+"|\t|"+p.getName());
-		if(p.getName().length()<31){
+		System.out.print(p.getCode() + "|\t|" + p.getName());
+		if (p.getName().length() < 31) {
 			System.out.print("\t");
 		}
-		if(p.getName().length()<23){
+		if (p.getName().length() < 23) {
 			System.out.print("\t");
 		}
-		if(p.getName().length()<15){
+		if (p.getName().length() < 15) {
 			System.out.print("\t");
 		}
-		if(p.getName().length()<7){
+		if (p.getName().length() < 7) {
 			System.out.print("\t");
 		}
-		System.out.printf("|("+"%.2f"+"€)|\n",p.getPrice());
+		System.out.printf("|(" + "%.2f" + "€)|", p.getPrice());
+		System.out.println(p.getCategory().getContent());
 	}
 
-	public void initialize(){
+	public void initialize() {
 		pizzaDaoList.loadPizzas();
 	}
 
@@ -60,7 +61,5 @@ public class IhmUtil {
 		pizzaDaoList.getFileWR().setAllLines(FileWR.toStringList(pizzaDaoList.findAllPizzas()));
 		pizzaDaoList.savePizzas();
 	}
-
-
 
 }

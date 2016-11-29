@@ -7,52 +7,50 @@ import fr.pizzeria.model.Pizza;
 public class RemovePizza extends Action {
 
 	public RemovePizza(IhmUtil ihmUtil) {
-		super("Supprimer une pizza", ihmUtil);
+		super("Supprimer une pizza", "Suppression d'une pizza", ihmUtil);
 	}
 
 	@Override
 	public void doAction() {
 		this.afficheTitre();
-		int nbOption = ihmUtil.getPizzaDaoList().getNbPizza()+1;
-		if(ihmUtil.getPizzaDaoList().getNbPizza()==0){
+		int nbOption = ihmUtil.getPizzaDaoList().getNbPizza() + 1;
+		if (ihmUtil.getPizzaDaoList().getNbPizza() == 0) {
 			System.out.println("\nAucune pizza dans la liste\n");
 			return;
 		} else {
-			for(Pizza pizza : ihmUtil.getPizzaDaoList().findAllPizzas()) {
-				getIhmUtil().affichePizza(pizza, true);
-			}
+			ihmUtil.getPizzaDaoList().findAllPizzas().forEach((p) -> getIhmUtil().affichePizza(p, true));
 		}
 		System.out.println("Veuillez choisir la pizza à Supprimer.");
-		System.out.println(nbOption+". Abandonner");
+		System.out.println(nbOption + ". Abandonner");
 		int option = 0;
 		boolean error = true;
-		while(error){
+		while (error) {
 
 			String temp = ihmUtil.getScanner().next();
 
-			try{
+			try {
 				option = Integer.parseInt(temp);
-			} catch(NumberFormatException e){
+			} catch (NumberFormatException e) {
 				System.out.println("Saisie incorrect veuillez entrez un nombre...");
 			}
-			if(0<option&option<=nbOption){
+			if (0 < option & option <= nbOption) {
 				error = false;
 			} else {
 				System.out.println("Saisie incorrect veuillez entrez une option valide...");
 			}
 
 		}
-		if(option==nbOption){
+		if (option == nbOption) {
 			return;
 		} else {
-			Pizza deletedPizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option-1);
+			Pizza deletedPizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
 			try {
 				ihmUtil.getPizzaDaoList().removePizza(option);
 			} catch (RemovePizzaException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			System.out.println("Pizza "+deletedPizza.getName()+" supprimer avec succès");
+			System.out.println("Pizza " + deletedPizza.getName() + " supprimer avec succès");
 		}
 	}
 

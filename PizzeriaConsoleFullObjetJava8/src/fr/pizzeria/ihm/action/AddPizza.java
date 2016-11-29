@@ -3,11 +3,12 @@ package fr.pizzeria.ihm.action;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.ihm.IhmUtil;
 import fr.pizzeria.model.Pizza;
+import fr.pizzeria.model.Pizza.Category;
 
 public class AddPizza extends Action {
 
 	public AddPizza(IhmUtil ihmUtil) {
-		super("Ajouter une pizza", ihmUtil);
+		super("Ajouter une pizza", "Ajout d'une pizza", ihmUtil);
 	}
 
 	@Override
@@ -21,20 +22,20 @@ public class AddPizza extends Action {
 		System.out.println("Veuillez saisir le prix");
 		double price = 0;
 		boolean error = true;
-		while(error){
+		while (error) {
 
-			 String temp = ihmUtil.getScanner().next();
+			String temp = ihmUtil.getScanner().next();
 
-			try{
+			try {
 				price = Double.parseDouble(temp);
 				error = false;
-			} catch(NumberFormatException e){
+			} catch (NumberFormatException e) {
 				System.out.println("Saisie incorrect veuillez entrez un nombre...");
 			}
 
 		}
 		try {
-			ihmUtil.getPizzaDaoList().saveNewPizza(new Pizza(code, name, price, true));
+			ihmUtil.getPizzaDaoList().saveNewPizza(new Pizza(code, name, price, Category.VIANDE, true));
 		} catch (SavePizzaException e) {
 			e.printStackTrace();
 		}

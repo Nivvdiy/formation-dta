@@ -5,7 +5,7 @@ import fr.pizzeria.ihm.IhmUtil;
 public class ExitApp extends Action {
 
 	public ExitApp(IhmUtil ihmUtil) {
-		super("Quitter", ihmUtil);
+		super("Quitter l'application", "Quitter", ihmUtil);
 	}
 
 	@Override

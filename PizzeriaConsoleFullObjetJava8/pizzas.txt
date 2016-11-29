@@ -1,24 +1,25 @@
-MAR;Margarita;14.57
-POV;Poivrons;15.18
-ROM;Roma;15.49
-CHR;Chorizo;15.95
-NAP;Napolitaine;15.95
-ITA;Italia;15.95
-ROY;Royale;15.95
-PRM;Prima;15.95
-BAC;Bacon;16.1
-ALS;Alsacienne;16.1
-PHA;Pizz' hallal;16.1
-ORI;Orientale;16.1
-FDM;Fruits de mer;16.4
-SAU;Saumon;16.4
-SIC;Sicilienne;16.56
-FRO;4 Fromages;17.17
-BRI;British;17.17
-SPE;Spéciale;17.62
-COM;Complète;17.62
-LAN;Landaise;17.62
-TTF;Tartifflette;17.62
-GEK;La spéciale GEEK;15.9
-MEX;La méxicaine;20.0
-CAV;Caviare;150.0
+MAR;Margarita;14.57;VIANDE
+POV;Poivrons;15.18;VEGETARIENNE
+ROM;Roma;15.49;VIANDE
+CHR;Chorizo;15.95;VIANDE
+NAP;Napolitaine;15.95;VIANDE
+ITA;Italia;15.95;VIANDE
+ROY;Royale;15.95;VIANDE
+PRM;Prima;15.95;VIANDE
+BAC;Bacon;16.1;VIANDE
+ALS;Alsacienne;16.1;VIANDE
+PHA;Pizz' hallal;16.1;VIANDE
+ORI;Orientale;16.1;VIANDE
+FDM;Fruits de mer;16.4;POISSON
+SAU;Saumon;16.4;POISSON
+SIC;Sicilienne;16.56;VIANDE
+FRO;4 Fromages;17.17;SANS_VIANDE
+BRI;British;17.17;VIANDE
+SPE;Spéciale;17.62;VIANDE
+COM;Complète;17.62;VIANDE
+LAN;Landaise;17.62;VIANDE
+TTF;Tartifflette;17.62;VIANDE
+GEK;La spéciale GEEK;15.9;VIANDE
+MEX;La méxicaine;20.0;VIANDE
+CAV;Caviare;50.0;POISSON
+VOL;Volcano;13.25;VIANDE

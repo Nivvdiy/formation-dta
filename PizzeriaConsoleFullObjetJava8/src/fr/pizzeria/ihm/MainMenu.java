@@ -5,11 +5,14 @@ import java.util.Map;
 
 import fr.pizzeria.ihm.action.Action;
 import fr.pizzeria.ihm.action.AddPizza;
+import fr.pizzeria.ihm.action.ExitApp;
 import fr.pizzeria.ihm.action.ListPizza;
+import fr.pizzeria.ihm.action.ListPizzaByGroup;
+import fr.pizzeria.ihm.action.ListPizzaByPrice;
 import fr.pizzeria.ihm.action.RemovePizza;
+import fr.pizzeria.ihm.action.ShowExpensivePizza;
 import fr.pizzeria.ihm.action.ShowNbPizza;
 import fr.pizzeria.ihm.action.UpdatePizza;
-import fr.pizzeria.ihm.action.ExitApp;
 
 public class MainMenu {
 
@@ -19,36 +22,39 @@ public class MainMenu {
 	int option;
 
 	public MainMenu(IhmUtil ihmUtil) {
-		this.menu.put(menu.size()+1,new ListPizza(ihmUtil));
-		this.menu.put(menu.size()+1,new AddPizza(ihmUtil));
-		this.menu.put(menu.size()+1,new UpdatePizza(ihmUtil));
-		this.menu.put(menu.size()+1,new RemovePizza(ihmUtil));
-		this.menu.put(menu.size()+1,new ShowNbPizza(ihmUtil));
-		this.menu.put(menu.size()+1,new ExitApp(ihmUtil));
+		this.menu.put(menu.size() + 1, new ListPizza(ihmUtil));
+		this.menu.put(menu.size() + 1, new AddPizza(ihmUtil));
+		this.menu.put(menu.size() + 1, new UpdatePizza(ihmUtil));
+		this.menu.put(menu.size() + 1, new RemovePizza(ihmUtil));
+		this.menu.put(menu.size() + 1, new ListPizzaByGroup(ihmUtil));
+		this.menu.put(menu.size() + 1, new ListPizzaByPrice(ihmUtil));
+		this.menu.put(menu.size() + 1, new ShowExpensivePizza(ihmUtil));
+		this.menu.put(menu.size() + 1, new ShowNbPizza(ihmUtil));
+		this.menu.put(menu.size() + 1, new ExitApp(ihmUtil));
 		this.ihmUtil = ihmUtil;
 		ihmUtil.initialize();
 	}
 
 	public void run() {
 		boolean running = true;
-		while(running){
+		while (running) {
 			System.out.println("***** Bienvenue sur le terminal de la pizzeria DTA *****");
-			for(Map.Entry<Integer, Action> a : menu.entrySet()) {
-				System.out.print(a.getKey()+". ");
-				a.getValue().describeAction();
-			}
+			menu.forEach((entry, menuV) -> {
+				System.out.print(entry + ". ");
+				menuV.describeAction();
+			});
 			System.out.println("***** Veuillez choisir une option *****");
 			error = true;
-			while(error){
+			while (error) {
 				String temp = ihmUtil.getScanner().next();
-				try{
+				try {
 					option = Integer.parseInt(temp);
-					if(0<option&option<menu.size()+1){
+					if (0 < option & option < menu.size() + 1) {
 						error = false;
 					} else {
 						System.out.println("Saisie incorrect veuillez entrez une option valide...");
 					}
-				} catch(NumberFormatException e){
+				} catch (NumberFormatException e) {
 					System.out.println("Saisie incorrect veuillez entrez un nombre...");
 				}
 			}

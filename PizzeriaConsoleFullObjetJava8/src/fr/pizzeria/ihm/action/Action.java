@@ -6,9 +6,11 @@ public abstract class Action {
 
 	private String title;
 	protected IhmUtil ihmUtil;
+	private String description;
 
-	public Action(String description, IhmUtil ihmUtil) {
-		this.title = description;
+	public Action(String description, String title, IhmUtil ihmUtil) {
+		this.setTitle(title);
+		this.setDescription(description);
 		this.ihmUtil = ihmUtil;
 	}
 
@@ -21,20 +23,28 @@ public abstract class Action {
 	}
 
 	public String getDescription() {
-		return title;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		this.title = description;
+		this.description = description;
 	}
-	
-	public void afficheTitre(){
-		System.out.println("***** "+ getDescription()+" *****");
+
+	public void afficheTitre() {
+		System.out.println("***** " + getTitle() + " *****");
 	}
-	
-	public void describeAction(){
+
+	public void describeAction() {
 		System.out.println(getDescription());
 	}
 
 	public abstract void doAction();
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
 }
