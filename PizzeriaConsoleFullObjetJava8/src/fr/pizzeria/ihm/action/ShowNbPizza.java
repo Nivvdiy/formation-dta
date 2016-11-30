@@ -11,7 +11,7 @@ public class ShowNbPizza extends Action {
 	@Override
 	public void doAction() {
 		this.afficheTitre();
-		System.out.println(ihmUtil.getPizzaDaoList().getNbPizza() + " pizza(s)");
+		System.out.println(ihmUtil.getIPizzaDao().getNbPizza() + " pizza(s)");
 	}
 
 }

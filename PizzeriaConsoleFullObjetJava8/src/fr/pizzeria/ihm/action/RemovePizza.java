@@ -13,12 +13,12 @@ public class RemovePizza extends Action {
 	@Override
 	public void doAction() {
 		this.afficheTitre();
-		int nbOption = ihmUtil.getPizzaDaoList().getNbPizza() + 1;
-		if (ihmUtil.getPizzaDaoList().getNbPizza() == 0) {
+		int nbOption = ihmUtil.getIPizzaDao().getNbPizza() + 1;
+		if (ihmUtil.getIPizzaDao().getNbPizza() == 0) {
 			System.out.println("\nAucune pizza dans la liste\n");
 			return;
 		} else {
-			ihmUtil.getPizzaDaoList().findAllPizzas().forEach((p) -> getIhmUtil().affichePizza(p, true));
+			ihmUtil.getIPizzaDao().findAllPizzas().forEach((p) -> getIhmUtil().affichePizza(p, true));
 		}
 		System.out.println("Veuillez choisir la pizza à Supprimer.");
 		System.out.println(nbOption + ". Abandonner");
@@ -43,9 +43,9 @@ public class RemovePizza extends Action {
 		if (option == nbOption) {
 			return;
 		} else {
-			Pizza deletedPizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
+			Pizza deletedPizza = ihmUtil.getIPizzaDao().findAllPizzas().get(option - 1);
 			try {
-				ihmUtil.getPizzaDaoList().removePizza(option);
+				ihmUtil.getIPizzaDao().removePizza(option);
 			} catch (RemovePizzaException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

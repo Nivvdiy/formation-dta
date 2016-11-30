@@ -24,3 +24,4 @@ MEX;La méxicaine;20.0;VIANDE
 CAV;Caviare;45.0;POISSON
 VOL;Volcano;13.25;VIANDE
 SAV;La savoyarde;16.15;VIANDE
+GRK;La grek;12.1;POISSON

@@ -11,12 +11,12 @@ public final class ModifyCode extends Modify {
 	}
 
 	protected void modifyPizza(int option) {
-		Pizza pizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
+		Pizza pizza = ihmUtil.getIPizzaDao().findAllPizzas().get(option - 1);
 		System.out.println("Ancien code => " + pizza.getCode());
 		System.out.println("Veuillez saisir le code");
 		pizza.setCode(ihmUtil.getScanner().next());
 		try {
-			ihmUtil.getPizzaDaoList().updatePizza(option, pizza);
+			ihmUtil.getIPizzaDao().updatePizza(option, pizza);
 		} catch (UpdatePizzaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

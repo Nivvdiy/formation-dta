@@ -2,14 +2,14 @@ package fr.pizzeria.ihm;
 
 import java.util.Scanner;
 
-import fr.pizzeria.dao.FileWR;
-import fr.pizzeria.dao.PizzaDaoList;
+import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.dao.file.FileWR;
 import fr.pizzeria.model.Pizza;
 
 public class IhmUtil {
 
 	private Scanner scanner;
-	private PizzaDaoList pizzaDaoList;
+	private IPizzaDao iPizzaDao;
 
 	public Scanner getScanner() {
 		return scanner;
@@ -19,22 +19,22 @@ public class IhmUtil {
 		this.scanner = scanner;
 	}
 
-	public PizzaDaoList getPizzaDaoList() {
-		return pizzaDaoList;
+	public IPizzaDao getIPizzaDao() {
+		return iPizzaDao;
 	}
 
-	public void setPizzaDaoList(PizzaDaoList pizzaDaoList) {
-		this.pizzaDaoList = pizzaDaoList;
+	public void setIPizzaDao(IPizzaDao iPizzaDao) {
+		this.iPizzaDao = iPizzaDao;
 	}
 
-	public IhmUtil(Scanner scanner, PizzaDaoList pizzaDaoList) {
+	public IhmUtil(Scanner scanner, IPizzaDao iPizzaDao) {
 		this.scanner = scanner;
-		this.pizzaDaoList = pizzaDaoList;
+		this.iPizzaDao = iPizzaDao;
 	}
 
 	public void affichePizza(Pizza p, boolean index) {
 		if (index) {
-			System.out.print(pizzaDaoList.findAllPizzas().indexOf(p) + 1 + ".\t -> \t|");
+			System.out.print(iPizzaDao.findAllPizzas().indexOf(p) + 1 + ".\t -> \t|");
 		}
 		System.out.print(p.getCode() + "|\t|" + p.getName());
 		if (p.getName().length() < 31) {
@@ -54,12 +54,12 @@ public class IhmUtil {
 	}
 
 	public void initialize() {
-		pizzaDaoList.loadPizzas();
+		iPizzaDao.loadPizzas();
 	}
 
 	public void savePizzaFile() {
-		pizzaDaoList.getFileWR().setAllLines(FileWR.toStringList(pizzaDaoList.findAllPizzas()));
-		pizzaDaoList.savePizzas();
+		iPizzaDao.getIWRDao().setAllLines(FileWR.toStringList(iPizzaDao.findAllPizzas()));
+		iPizzaDao.savePizzas();
 	}
 
 }

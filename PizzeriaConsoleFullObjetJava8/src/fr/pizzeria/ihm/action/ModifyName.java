@@ -12,12 +12,13 @@ public final class ModifyName extends Modify {
 
 	@Override
 	protected void modifyPizza(int option) {
-		Pizza pizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
+		Pizza pizza = ihmUtil.getIPizzaDao().findAllPizzas().get(option - 1);
 		System.out.println("Ancien nom => " + pizza.getName());
 		System.out.println("Veuillez saisir le nom");
+		ihmUtil.getScanner().nextLine();
 		pizza.setName(ihmUtil.getScanner().nextLine());
 		try {
-			ihmUtil.getPizzaDaoList().updatePizza(option, pizza);
+			ihmUtil.getIPizzaDao().updatePizza(option, pizza);
 		} catch (UpdatePizzaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

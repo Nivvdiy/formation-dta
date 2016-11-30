@@ -11,10 +11,10 @@ public class ListPizza extends Action {
 	@Override
 	public void doAction() {
 		this.afficheTitre();
-		if (ihmUtil.getPizzaDaoList().getNbPizza() == 0) {
+		if (ihmUtil.getIPizzaDao().getNbPizza() == 0) {
 			System.out.println("\nAucune pizza dans la liste\n");
 		} else {
-			ihmUtil.getPizzaDaoList().findAllPizzas().forEach((p) -> getIhmUtil().affichePizza(p, false));
+			ihmUtil.getIPizzaDao().findAllPizzas().forEach((p) -> getIhmUtil().affichePizza(p, false));
 		}
 	}
 

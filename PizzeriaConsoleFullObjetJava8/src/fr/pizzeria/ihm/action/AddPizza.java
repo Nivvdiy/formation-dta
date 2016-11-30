@@ -57,7 +57,7 @@ public class AddPizza extends Action {
 
 		}
 		try {
-			ihmUtil.getPizzaDaoList().saveNewPizza(new Pizza(code, name, price, cat, true));
+			ihmUtil.getIPizzaDao().saveNewPizza(new Pizza(code, name, price, cat, true));
 		} catch (SavePizzaException e) {
 			e.printStackTrace();
 		}

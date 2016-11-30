@@ -12,7 +12,7 @@ public final class ModifyPrice extends Modify {
 
 	@Override
 	protected void modifyPizza(int option) {
-		Pizza pizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
+		Pizza pizza = ihmUtil.getIPizzaDao().findAllPizzas().get(option - 1);
 		System.out.println("Ancien prix => " + pizza.getPrice());
 		System.out.println("Veuillez saisir le prix");
 		boolean error = true;
@@ -29,7 +29,7 @@ public final class ModifyPrice extends Modify {
 
 		}
 		try {
-			ihmUtil.getPizzaDaoList().updatePizza(option, pizza);
+			ihmUtil.getIPizzaDao().updatePizza(option, pizza);
 		} catch (UpdatePizzaException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -12,12 +12,12 @@ public abstract class Modify extends Action {
 	@Override
 	public final void doAction() {
 		this.afficheTitre();
-		int nbOption = ihmUtil.getPizzaDaoList().getNbPizza() + 1;
-		if (ihmUtil.getPizzaDaoList().getNbPizza() == 0) {
+		int nbOption = ihmUtil.getIPizzaDao().getNbPizza() + 1;
+		if (ihmUtil.getIPizzaDao().getNbPizza() == 0) {
 			System.out.println("\nAucune pizza dans la liste\n");
 			return;
 		} else {
-			ihmUtil.getPizzaDaoList().findAllPizzas().forEach((p) -> getIhmUtil().affichePizza(p, true));
+			ihmUtil.getIPizzaDao().findAllPizzas().forEach((p) -> getIhmUtil().affichePizza(p, true));
 		}
 		System.out.println("Veuillez choisir la pizza à modifier.");
 		System.out.println(nbOption + ". Abandonner");
@@ -42,10 +42,10 @@ public abstract class Modify extends Action {
 		if (option == nbOption) {
 			return;
 		} else {
-			Pizza updatedPizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
+			Pizza updatedPizza = ihmUtil.getIPizzaDao().findAllPizzas().get(option - 1);
 			System.out.println("Vous allez modifier la pizza " + updatedPizza.getName());
 			modifyPizza(option);
-			updatedPizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
+			updatedPizza = ihmUtil.getIPizzaDao().findAllPizzas().get(option - 1);
 			System.out.println("Pizza modifié " + updatedPizza.getName());
 		}
 

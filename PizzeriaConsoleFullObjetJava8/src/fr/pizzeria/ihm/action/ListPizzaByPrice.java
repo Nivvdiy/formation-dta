@@ -14,10 +14,10 @@ public class ListPizzaByPrice extends Action {
 	@Override
 	public void doAction() {
 		this.afficheTitre();
-		if (ihmUtil.getPizzaDaoList().getNbPizza() == 0) {
+		if (ihmUtil.getIPizzaDao().getNbPizza() == 0) {
 			System.out.println("\nAucune pizza dans la liste\n");
 		} else {
-			ihmUtil.getPizzaDaoList().findAllPizzas().stream().sorted(Comparator.comparing(Pizza::getPrice))
+			ihmUtil.getIPizzaDao().findAllPizzas().stream().sorted(Comparator.comparing(Pizza::getPrice))
 					.forEach((p) -> ihmUtil.affichePizza(p, false));
 
 		}

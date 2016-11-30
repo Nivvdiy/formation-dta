@@ -14,10 +14,10 @@ public class ListPizzaByGroup extends Action {
 	@Override
 	public void doAction() {
 		this.afficheTitre();
-		if (ihmUtil.getPizzaDaoList().getNbPizza() == 0) {
+		if (ihmUtil.getIPizzaDao().getNbPizza() == 0) {
 			System.out.println("\nAucune pizza dans la liste\n");
 		} else {
-			ihmUtil.getPizzaDaoList().findAllPizzas().stream().collect(Collectors.groupingBy(Pizza::getCategory))
+			ihmUtil.getIPizzaDao().findAllPizzas().stream().collect(Collectors.groupingBy(Pizza::getCategory))
 					.forEach((a, b) -> b.forEach((c) -> getIhmUtil().affichePizza(c, false)));
 
 		}
