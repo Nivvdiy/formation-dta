@@ -1,17 +1,26 @@
 package fr.pizzeria.ihm.action;
 
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.ihm.IhmUtil;
+import fr.pizzeria.model.Pizza;
 
-public class ModifyCode extends Action {
+public final class ModifyCode extends Modify {
 
 	public ModifyCode(IhmUtil ihmUtil) {
 		super("Modifier le code d'une pizza", "Modification du code de la pizza", ihmUtil);
 	}
 
-	@Override
-	public void doAction() {
-		// TODO Auto-generated method stub
-
+	protected void modifyPizza(int option) {
+		Pizza pizza = ihmUtil.getPizzaDaoList().findAllPizzas().get(option - 1);
+		System.out.println("Ancien code => " + pizza.getCode());
+		System.out.println("Veuillez saisir le code");
+		pizza.setCode(ihmUtil.getScanner().next());
+		try {
+			ihmUtil.getPizzaDaoList().updatePizza(option, pizza);
+		} catch (UpdatePizzaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
