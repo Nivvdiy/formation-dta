@@ -21,6 +21,6 @@ LAN;Landaise;15.3;VIANDE
 TTF;Tartifflette;18.4;VIANDE
 GEK;La spéciale GEEK;15.9;VIANDE
 MEX;La méxicaine;20.0;VIANDE
-CAV;Caviare;50.0;POISSON
+CAV;Caviare;45.0;POISSON
 VOL;Volcano;13.25;VIANDE
 SAV;La savoyarde;16.15;VIANDE
