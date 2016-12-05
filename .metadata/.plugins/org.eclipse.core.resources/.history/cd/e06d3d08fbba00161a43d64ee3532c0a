@@ -1,0 +1,2 @@
+dao.impl=fr.pizzeria.dao.PizzaDaoFile
+file=pizzas.txt;

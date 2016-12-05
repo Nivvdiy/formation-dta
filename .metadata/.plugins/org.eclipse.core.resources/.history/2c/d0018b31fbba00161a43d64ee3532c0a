@@ -1,0 +1,28 @@
+package fr.pizzeria.console;
+
+import java.util.ResourceBundle;
+import java.util.Scanner;
+
+import fr.pizzeria.dao.IPizzaDao;
+import fr.pizzeria.dao.file.PizzaDaoFile;
+import fr.pizzeria.ihm.IhmUtil;
+import fr.pizzeria.ihm.MainMenu;
+
+public class PizzeriaAdminConsoleApp {
+
+	public static void main(String[] args) throws InstantiationException, IllegalAccessException, ClassNotFoundException {
+		
+		ResourceBundle bundle = ResourceBundle.getBundle("app");
+		String conf = bundle.getString("dao.impl");
+		String memFile = bundle.getString("file");
+		
+		IPizzaDao pizzaDao = (IPizzaDao) Class.forName(conf).getConstructor("").newInstance();
+
+		IhmUtil ihmUtil = new IhmUtil(new Scanner(System.in), new PizzaDaoFile("pizzas.txt"));
+
+		MainMenu mainMenu = new MainMenu(ihmUtil);
+
+		mainMenu.run();
+	}
+
+}

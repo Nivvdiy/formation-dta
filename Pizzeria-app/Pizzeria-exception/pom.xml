@@ -4,6 +4,7 @@
     <groupId>DTA</groupId>
     <artifactId>Pizzeria-app</artifactId>
     <version>0.0.1-Dev</version>
+    <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>Pizzeria-exception</artifactId>
   <dependencies>
