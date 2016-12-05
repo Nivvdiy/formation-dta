@@ -1,0 +1,13 @@
+INDEX VERSION 1.129+C:\Users\ETY3\Workspaces\formation-dta\.metadata\.plugins\org.eclipse.jdt.core
+3243867506.index
+2103736903.index
+858280311.index
+3947864521.index
+4122718426.index
+2836789113.index
+1524418515.index
+3682089761.index
+4003759466.index
+979920580.index
+3966530071.index
+3604199475.index
